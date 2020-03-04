@@ -10,14 +10,13 @@ import UIKit
 
 class AlbumTableViewCell: UITableViewCell {
     
-    var artworkImageView =  UIImageView()
+    var artworkImageView =  UIImageView(image: UIImage(named: "cd"))
     var titleLabel = UILabel()
     var artistLabel = UILabel()
     
-    func configure(with album: AlbumAPI.AlbumResult){
+    func configure(with album: AlbumResult){
         titleLabel.text = album.name
         artistLabel.text = album.artistName
-        //TODO: NO FORCE UNWRAP
         if let url = URL(string: album.artworkUrl100) {
             artworkImageView.downloadImage(from: url)
         }
@@ -33,6 +32,10 @@ class AlbumTableViewCell: UITableViewCell {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    override func prepareForReuse() {
+        artworkImageView.image = UIImage(named: "cd")
     }
     
     func initConstraintsAndConfigurations() {
@@ -65,30 +68,9 @@ class AlbumTableViewCell: UITableViewCell {
     
     func styleLabel(_ label: UILabel) {
         label.numberOfLines = 1
-        label.allowsDefaultTighteningForTruncation = true
         if let arial = UIFont(name: "ArialMT", size: 17) {
             label.font = arial
         }
     }
     
-}
-
-//TODO: movoe to extensions
-extension UIImageView {
-    func downloadImage(from url: URL) {
-         print("Download Started")
-         getData(from: url) { data, response, error in
-             guard let data = data, error == nil else { return }
-             print(response?.suggestedFilename ?? url.lastPathComponent)
-             print("Download Finished")
-             DispatchQueue.main.async() { [weak self] in
-                 guard let self = self else {return}
-                 self.image = UIImage(data: data)
-             }
-         }
-     }
-     
-     func getData(from url: URL, completion: @escaping (Data?, URLResponse?, Error?) -> ()) {
-         URLSession.shared.dataTask(with: url, completionHandler: completion).resume()
-     }
 }

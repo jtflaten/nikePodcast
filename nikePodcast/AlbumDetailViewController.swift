@@ -20,7 +20,7 @@ class AlbumDetailViewController: UIViewController {
     var copyrightLabel = UILabel()
     var buyButton = UIButton()
     
-    var album: AlbumAPI.AlbumResult!
+    var album: AlbumResult!
     
     override func viewDidLoad() {
         initSubviews()
@@ -30,7 +30,7 @@ class AlbumDetailViewController: UIViewController {
         configure()
     }
     
-    public static func create(album: AlbumAPI.AlbumResult) -> AlbumDetailViewController{
+    public static func create(album: AlbumResult) -> AlbumDetailViewController{
         let vc = AlbumDetailViewController()
         vc.view.backgroundColor = .white
         vc.album = album
@@ -48,7 +48,7 @@ class AlbumDetailViewController: UIViewController {
         }
     }
     
-    func buildGenreString(with genres : [AlbumAPI.Genre]) -> String {
+    func buildGenreString(with genres : [Genre]) -> String {
         var string = ""
         for (index, genre) in genres.enumerated() {
             string.append(genre.name)
@@ -58,8 +58,6 @@ class AlbumDetailViewController: UIViewController {
         }
         return string
     }
-    
-
     
     fileprivate func setUpLabel(_ label: UILabel, underneath viewAvove: UIView, size: CGFloat = 17) {
         self.view.addSubviewWithAutoLayout(label)
@@ -113,7 +111,10 @@ class AlbumDetailViewController: UIViewController {
         buyButton.addTarget(self, action: #selector(handleBuyButtonTap), for: .touchUpInside)
     }
      @objc func handleBuyButtonTap() {
-//        TODO: fix consistent simulator issues
+    /* NOTE TO REVIEWER: for this method, I would be seeking some outside help from a senior/peer:
+         I've run into an issue where the simulator can not open the album in the Music app or the iTunes
+         store, because these apps are not on the Simulator, and even safari on the simulator does not consistently open
+         the link. But when run on a device, the behavior is as expected, it does attempt to open in the iTunes Store.*/
         let buyString = album.url.replacingOccurrences(of: "https", with: "itms")
         guard let httpsUrl = URL(string: album.url) else {
             presentDefaultAlertView(title: "Error", message: "there was an error find the album in the Music store", dismissalMessage: nil)
@@ -132,18 +133,6 @@ class AlbumDetailViewController: UIViewController {
             } else {
                 presentDefaultAlertView(title: "No Apple Music", message: "it appears you do not have apple music on this phone", dismissalMessage: nil)
             }
-        }
-   
-        
-    }
-    
-    
-    
-}
-//TODO: add this to extensions
-extension UIView {
-    func addSubviewWithAutoLayout(_ vw: UIView) {
-        vw.translatesAutoresizingMaskIntoConstraints = false
-        self.addSubview(vw)
+        }  
     }
 }

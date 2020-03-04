@@ -9,36 +9,11 @@
 import Foundation
 import UIKit
 
-// MARK: UIViewController
+// MARK: - UIViewController
 extension UIViewController {
     
-    func addTapOutsideToDismissKeyboard() {
-        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
-        tap.cancelsTouchesInView = false
-        view.addGestureRecognizer(tap)
-    }
-
-    @objc func dismissKeyboard() {
-        view.endEditing(true)
-        NotificationCenter.default.post(name: .outsideTapped, object: nil)
-    }
     
-    func addOutsideTapGestureReconizer() {
-        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(fireOutsideTapped))
-        tap.cancelsTouchesInView = false
-        view.addGestureRecognizer(tap)
-    }
     
-    @objc func fireOutsideTapped() {
-        NotificationCenter.default.post(name: .outsideTapped, object: nil)
-    }
-    
-    static func storyboardInstance<T: UIViewController>() -> T? {
-        let storyBoard = UIStoryboard(name: String(describing: (self)), bundle: nil)
-        let ret = storyBoard.instantiateInitialViewController()
-        return ret as? T
-    }
-
     func addChildViewControllerToContainerView(viewController: UIViewController, containerView: UIView) {
         let vc = viewController
         self.addChild(vc)
@@ -52,6 +27,7 @@ extension UIViewController {
         ])
         vc.didMove(toParent: self)
     }
+    
     func setViewControllerInContainerView(viewController: UIViewController, containerView: UIView) {
         if self.children.isEmpty {
             let vc = viewController
@@ -93,109 +69,35 @@ extension UIViewController {
     }
 }
 
-// MARK: UITableView
+//MARK: - UIImageView
 
-// swiftlint:disable force_cast
-extension UITableView {
-    func dequeue<T: UITableViewCell>(for indexPath: IndexPath) -> T {
-        return dequeueReusableCell(withIdentifier: T.reuseIdentifier, for: indexPath) as! T
-    }
-}
-
-// MARK: UICollectionView
-extension UICollectionView {
-    func dequeue<T: UICollectionViewCell>(for indexPath: IndexPath) -> T {
-        return dequeueReusableCell(withReuseIdentifier: T.reuseIdentifier, for: indexPath) as! T
-    }
-}
-
-// MARK: UIColor
-extension UIColor {
-    convenience init(red: Int, green: Int, blue: Int) {
-        assert(red >= 0 && red <= 255, "Invalid red component")
-        assert(green >= 0 && green <= 255, "Invalid green component")
-        assert(blue >= 0 && blue <= 255, "Invalid blue component")
-        
-        self.init(red: CGFloat(red) / 255.0, green: CGFloat(green) / 255.0, blue: CGFloat(blue) / 255.0, alpha: 1.0)
+extension UIImageView {
+    public func downloadImage(from url: URL) {
+        print("Download Started")
+        getData(from: url) { data, response, error in
+            guard let data = data, error == nil else { return }
+            print(response?.suggestedFilename ?? url.lastPathComponent)
+            print("Download Finished")
+            DispatchQueue.main.async() { [weak self] in
+                guard let self = self else {return}
+                self.image = UIImage(data: data)
+            }
+        }
     }
     
-    convenience init(rgb: Int) {
-        self.init(
-            red: (rgb >> 16) & 0xFF,
-            green: (rgb >> 8) & 0xFF,
-            blue: rgb & 0xFF
-        )
-    }
-    
-    convenience init(hex: String) {
-        var cString: String = hex.trimmingCharacters(in: .whitespacesAndNewlines).uppercased()
-        
-        if cString.hasPrefix("#") {
-            cString.remove(at: cString.startIndex)
-        }
-        
-        if (cString.count) != 6 {
-            self.init()
-        } else {
-            var rgbValue: UInt64 = 0
-
-            Scanner(string: cString).scanHexInt64(&rgbValue)
-            self.init(
-                red: CGFloat((rgbValue & 0xFF0000) >> 16) / 255.0,
-                green: CGFloat((rgbValue & 0x00FF00) >> 8) / 255.0,
-                blue: CGFloat(rgbValue & 0x0000FF) / 255.0,
-                alpha: CGFloat(1.0)
-            )
-        }
-    }
- 
-    var hexString: String {
-        let colorRef = cgColor.components
-        let r = colorRef?[0] ?? 0
-        let g = colorRef?[1] ?? 0
-        let b = ((colorRef?.count ?? 0) > 2 ? colorRef?[2] : g) ?? 0
-        let a = cgColor.alpha
-        
-        var color = String(
-            format: "#%02lX%02lX%02lX",
-            lroundf(Float(r * 255)),
-            lroundf(Float(g * 255)),
-            lroundf(Float(b * 255))
-        )
-        
-        if a < 1 {
-            color += String(format: "%02lX", lroundf(Float(a)))
-        }
-        
-        return color
+    func getData(from url: URL, completion: @escaping (Data?, URLResponse?, Error?) -> ()) {
+        URLSession.shared.dataTask(with: url, completionHandler: completion).resume()
     }
 }
 
-// MARK: UIView
+
+// MARK: - UIView
+
 extension UIView {
-   
-    static func nibInstance<T: UIView>() -> T? {
-        if let nibView = Bundle.main.loadNibNamed(String(describing: (self)), owner: nil, options: nil)?.first as? T {
-            return nibView
-        }
-        return nil
-    }
-    
-    public func makeCircular(withBorder border: CGFloat? = nil) {
-        if let border = border {
-            self.layer.borderWidth = border
-            self.layer.borderColor = Colors.gray2?.cgColor
-        }
-        self.layer.masksToBounds = true
-        self.layer.cornerRadius = self.frame.height/2
-        self.clipsToBounds = true
-    }
-    
-    public func addShadow() {
-        self.layer.shadowColor = UIColor.lightGray.cgColor
-        self.layer.shadowOffset = CGSize(width: 0, height: 2.0)
-        self.layer.shadowRadius = 2.0
-        self.layer.shadowOpacity = 1.0
+
+    func addSubviewWithAutoLayout(_ vw: UIView) {
+        vw.translatesAutoresizingMaskIntoConstraints = false
+        self.addSubview(vw)
     }
     
     public func roundCorners(forTop: Bool = true, withShadow: Bool = true) {
@@ -358,25 +260,6 @@ extension UIImage {
         UIGraphicsEndImageContext()
         
         return imageCopy
-    }
-    
-
-    
-}
-
-extension UITextViewDelegate {
-    func removePlaceholder(_ textView: UITextView) {
-        if textView.textColor == UIColor.lightGray {
-            textView.text = nil
-            textView.textColor = UIColor.black
-        }
-    }
-    
-    func resetPlaceholder(_ textView: UITextView, to placeholder: String) {
-        if textView.text.isEmpty {
-            textView.text = placeholder
-            textView.textColor = UIColor.lightGray
-        }
     }
 }
 

@@ -12,6 +12,7 @@ enum APIError : Error {
     case serverError // HTTP 5xx
     case requestError(Int, String) // HTTP 4xx
     case invalidResponse
+    case badURL
     case decodingError(DecodingError)
 }
 
@@ -24,8 +25,10 @@ class AlbumAPI {
     }
         
     func fetchAlbums(completion: @escaping (Result<Response, APIError>) -> Void) {
-        //TODO: no force unwrap!
-        let url = URL(string: "https://rss.itunes.apple.com/api/v1/us/apple-music/top-albums/all/100/explicit.json")!
+        guard let url = URL(string: "https://rss.itunes.apple.com/api/v1/us/apple-music/top-albums/all/100/explicit.json") else {
+            completion(.failure(.badURL))
+            return
+        }
         let request = URLRequest(url: url)
         perform(request: request, completion: parseDecodable(completion: completion))
     }
@@ -64,52 +67,22 @@ class AlbumAPI {
                completion(.failure(.networkingError(error)))
                return
            }
-
            guard let http = response as? HTTPURLResponse, let data = data else {
                completion(.failure(.invalidResponse))
                return
            }
-
            switch http.statusCode {
            case 200:
                completion(.success(data))
-
            case 400...499:
                let body = String(data: data, encoding: .utf8)
                completion(.failure(.requestError(http.statusCode, body ?? "<no body>")))
-
            case 500...599:
                completion(.failure(.serverError))
-
            default:
                fatalError("Unhandled HTTP status code: \(http.statusCode)")
            }
        }
        task.resume()
-    }
-}
-
-extension AlbumAPI {
-    struct Response : Decodable {
-        let feed: Feed
-    }
-    
-    struct Feed : Decodable {
-        let results: [AlbumResult]
-    }
-    
-    struct AlbumResult : Decodable {
-        let id: String
-        let artistName: String
-        let name: String
-        let artworkUrl100: String
-        let genres: [Genre]
-        let copyright: String
-        let releaseDate: String
-        let url: String
-    }
-    
-    struct Genre: Decodable {
-        let name: String
     }
 }

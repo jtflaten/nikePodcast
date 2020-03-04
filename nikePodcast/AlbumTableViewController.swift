@@ -10,12 +10,18 @@ import UIKit
 
 class AlbumTableViewController: UITableViewController {
 
-    var albums: [AlbumAPI.AlbumResult] = []
+    var albums: [AlbumResult] = []
     let albumClient = AlbumAPI()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = .white
+        checkForConnection()
+        fetchAblbums()
+        tableView.register(AlbumTableViewCell.self, forCellReuseIdentifier: "AlbumTableViewCell")
+    }
+    
+    fileprivate func fetchAblbums() {
         albumClient.fetchAlbums() { result in
             switch result {
             case .success(let response):
@@ -25,9 +31,9 @@ class AlbumTableViewController: UITableViewController {
                 print(error.localizedDescription)
             }
         }
-        tableView.register(AlbumTableViewCell.self, forCellReuseIdentifier: "AlbumTableViewCell")
     }
-
+    
+    //MARK: - DataSource Methods
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return albums.count
     }
@@ -39,6 +45,7 @@ class AlbumTableViewController: UITableViewController {
           return cell
       }
     
+    //MARK: - Delegate Methods
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let vc = AlbumDetailViewController.create(album: albums[indexPath.row])
         self.navigationController?.pushViewController(vc, animated: true)
