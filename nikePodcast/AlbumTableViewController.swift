@@ -15,6 +15,7 @@ class AlbumTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.view.backgroundColor = .white
         albumClient.fetchAlbums() { result in
             switch result {
             case .success(let response):
