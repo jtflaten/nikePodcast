@@ -106,6 +106,7 @@ extension AlbumAPI {
         let genres: [Genre]
         let copyright: String
         let releaseDate: String
+        let url: String
     }
     
     struct Genre: Decodable {

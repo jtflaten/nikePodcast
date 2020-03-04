@@ -17,7 +17,7 @@ class AlbumTableViewCell: UITableViewCell {
     func configure(with album: AlbumAPI.AlbumResult){
         titleLabel.text = album.name
         artistLabel.text = album.artistName
-        //NO FORCE UNWRAP
+        //TODO: NO FORCE UNWRAP
         if let url = URL(string: album.artworkUrl100) {
             artworkImageView.downloadImage(from: url)
         }

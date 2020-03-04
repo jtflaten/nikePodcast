@@ -19,6 +19,8 @@
 		58316346240F489500F9CCED /* Utility in Resources */ = {isa = PBXBuildFile; fileRef = 58316345240F489500F9CCED /* Utility */; };
 		58316348240F4BB400F9CCED /* AlbumTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58316347240F4BB400F9CCED /* AlbumTableViewCell.swift */; };
 		58B6F6ED240F5BEE0048A582 /* AlbumDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58B6F6EC240F5BEE0048A582 /* AlbumDetailViewController.swift */; };
+		58B6F6EF241002D70048A582 /* AlertViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58B6F6EE241002D70048A582 /* AlertViews.swift */; };
+		58B6F6F12410176E0048A582 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58B6F6F02410176D0048A582 /* Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +59,10 @@
 		58316345240F489500F9CCED /* Utility */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Utility; path = ../../../../../../Downloads/Utility; sourceTree = "<group>"; };
 		58316347240F4BB400F9CCED /* AlbumTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumTableViewCell.swift; sourceTree = "<group>"; };
 		58B6F6EC240F5BEE0048A582 /* AlbumDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumDetailViewController.swift; sourceTree = "<group>"; };
+		58B6F6EE241002D70048A582 /* AlertViews.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AlertViews.swift; path = ../../../../../../Downloads/Utility/AlertViews.swift; sourceTree = "<group>"; };
+		58B6F6F02410176D0048A582 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Extensions.swift; path = ../../../../../../Downloads/Utility/Extensions.swift; sourceTree = "<group>"; };
+		58B6F6F32410177F0048A582 /* AlertViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertViews.swift; sourceTree = "<group>"; };
+		58B6F6F4241017820048A582 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +113,8 @@
 		58316312240F3B6200F9CCED /* nikePodcast */ = {
 			isa = PBXGroup;
 			children = (
+				58B6F6F2241017750048A582 /* Utility */,
+				58B6F6EE241002D70048A582 /* AlertViews.swift */,
 				58316313240F3B6200F9CCED /* AppDelegate.swift */,
 				58316315240F3B6200F9CCED /* SceneDelegate.swift */,
 				58316317240F3B6200F9CCED /* AlbumTableViewController.swift */,
@@ -114,6 +122,7 @@
 				58316343240F3CFF00F9CCED /* AlbumAPI.swift */,
 				58B6F6EC240F5BEE0048A582 /* AlbumDetailViewController.swift */,
 				58316319240F3B6200F9CCED /* Main.storyboard */,
+				58B6F6F02410176D0048A582 /* Extensions.swift */,
 				58316345240F489500F9CCED /* Utility */,
 				5831631C240F3B6200F9CCED /* Assets.xcassets */,
 				5831631E240F3B6200F9CCED /* LaunchScreen.storyboard */,
@@ -138,6 +147,15 @@
 				5831633D240F3C1400F9CCED /* Info.plist */,
 			);
 			path = albumApiTests;
+			sourceTree = "<group>";
+		};
+		58B6F6F2241017750048A582 /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				58B6F6F4241017820048A582 /* Extensions.swift */,
+				58B6F6F32410177F0048A582 /* AlertViews.swift */,
+			);
+			path = Utility;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -274,6 +292,8 @@
 			files = (
 				58316348240F4BB400F9CCED /* AlbumTableViewCell.swift in Sources */,
 				58316344240F3CFF00F9CCED /* AlbumAPI.swift in Sources */,
+				58B6F6EF241002D70048A582 /* AlertViews.swift in Sources */,
+				58B6F6F12410176E0048A582 /* Extensions.swift in Sources */,
 				58316318240F3B6200F9CCED /* AlbumTableViewController.swift in Sources */,
 				58316314240F3B6200F9CCED /* AppDelegate.swift in Sources */,
 				58316316240F3B6200F9CCED /* SceneDelegate.swift in Sources */,
