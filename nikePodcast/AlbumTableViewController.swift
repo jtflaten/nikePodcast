@@ -24,7 +24,7 @@ class AlbumTableViewController: UITableViewController {
                 print(error.localizedDescription)
             }
         }
-        // Do any additional setup after loading the view.
+        tableView.register(AlbumTableViewCell.self, forCellReuseIdentifier: "AlbumTableViewCell")
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

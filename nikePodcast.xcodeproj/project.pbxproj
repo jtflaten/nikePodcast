@@ -21,6 +21,7 @@
 		58B6F6ED240F5BEE0048A582 /* AlbumDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58B6F6EC240F5BEE0048A582 /* AlbumDetailViewController.swift */; };
 		58B6F6EF241002D70048A582 /* AlertViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58B6F6EE241002D70048A582 /* AlertViews.swift */; };
 		58B6F6F12410176E0048A582 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58B6F6F02410176D0048A582 /* Extensions.swift */; };
+		58B6F6F624101F440048A582 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58B6F6F524101F440048A582 /* Reachability.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +64,8 @@
 		58B6F6F02410176D0048A582 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Extensions.swift; path = ../../../../../../Downloads/Utility/Extensions.swift; sourceTree = "<group>"; };
 		58B6F6F32410177F0048A582 /* AlertViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertViews.swift; sourceTree = "<group>"; };
 		58B6F6F4241017820048A582 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		58B6F6F524101F440048A582 /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Reachability.swift; path = ../../../../../../Downloads/Utility/Reachability.swift; sourceTree = "<group>"; };
+		58B6F6F724101F490048A582 /* Reachability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,6 +116,7 @@
 		58316312240F3B6200F9CCED /* nikePodcast */ = {
 			isa = PBXGroup;
 			children = (
+				58B6F6F524101F440048A582 /* Reachability.swift */,
 				58B6F6F2241017750048A582 /* Utility */,
 				58B6F6EE241002D70048A582 /* AlertViews.swift */,
 				58316313240F3B6200F9CCED /* AppDelegate.swift */,
@@ -152,6 +156,7 @@
 		58B6F6F2241017750048A582 /* Utility */ = {
 			isa = PBXGroup;
 			children = (
+				58B6F6F724101F490048A582 /* Reachability.swift */,
 				58B6F6F4241017820048A582 /* Extensions.swift */,
 				58B6F6F32410177F0048A582 /* AlertViews.swift */,
 			);
@@ -295,6 +300,7 @@
 				58B6F6EF241002D70048A582 /* AlertViews.swift in Sources */,
 				58B6F6F12410176E0048A582 /* Extensions.swift in Sources */,
 				58316318240F3B6200F9CCED /* AlbumTableViewController.swift in Sources */,
+				58B6F6F624101F440048A582 /* Reachability.swift in Sources */,
 				58316314240F3B6200F9CCED /* AppDelegate.swift in Sources */,
 				58316316240F3B6200F9CCED /* SceneDelegate.swift in Sources */,
 				58B6F6ED240F5BEE0048A582 /* AlbumDetailViewController.swift in Sources */,

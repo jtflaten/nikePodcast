@@ -31,51 +31,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="AlbumTableViewCell" rowHeight="67" id="s5F-jO-tMK" customClass="AlbumTableViewCell" customModule="nikePodcast" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="414" height="67"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="s5F-jO-tMK" id="4h7-e0-kec">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="67"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="QOe-XC-AsC">
-                                            <rect key="frame" x="0.0" y="0.0" width="80" height="67"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="80" id="YmH-hQ-dHW"/>
-                                                <constraint firstAttribute="height" constant="80" id="dP0-Pe-GLA"/>
-                                            </constraints>
-                                        </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Artist" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yMm-Cm-tUc">
-                                            <rect key="frame" x="100" y="19" width="42" height="21"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Album" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Ve-3c-hLS">
-                                            <rect key="frame" x="100" y="43" width="49" height="21"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                    </subviews>
-                                    <constraints>
-                                        <constraint firstItem="yMm-Cm-tUc" firstAttribute="top" secondItem="4h7-e0-kec" secondAttribute="topMargin" constant="8" id="3kT-Wa-YsC"/>
-                                        <constraint firstItem="yMm-Cm-tUc" firstAttribute="leading" secondItem="QOe-XC-AsC" secondAttribute="trailing" constant="20" id="P0A-8s-mK7"/>
-                                        <constraint firstAttribute="bottom" secondItem="QOe-XC-AsC" secondAttribute="bottom" id="jOj-uI-Wlu"/>
-                                        <constraint firstItem="QOe-XC-AsC" firstAttribute="top" secondItem="4h7-e0-kec" secondAttribute="top" id="qBB-Fh-g7m"/>
-                                        <constraint firstItem="9Ve-3c-hLS" firstAttribute="leading" secondItem="QOe-XC-AsC" secondAttribute="trailing" constant="20" id="tci-Ff-LoC"/>
-                                        <constraint firstItem="9Ve-3c-hLS" firstAttribute="bottom" secondItem="4h7-e0-kec" secondAttribute="bottomMargin" constant="8" id="xhH-ln-B4A"/>
-                                        <constraint firstItem="QOe-XC-AsC" firstAttribute="leading" secondItem="4h7-e0-kec" secondAttribute="leading" id="y6e-Zq-b76"/>
-                                    </constraints>
-                                </tableViewCellContentView>
-                                <connections>
-                                    <outlet property="artistLabel" destination="yMm-Cm-tUc" id="CIL-uO-6U5"/>
-                                    <outlet property="artworkImageView" destination="QOe-XC-AsC" id="f7C-2S-CN3"/>
-                                    <outlet property="titleLabel" destination="9Ve-3c-hLS" id="cFO-rW-NNR"/>
-                                </connections>
-                            </tableViewCell>
-                        </prototypes>
                         <connections>
                             <outlet property="dataSource" destination="fKC-YT-Dvw" id="InH-2Y-Lba"/>
                             <outlet property="delegate" destination="fKC-YT-Dvw" id="AGX-3t-0cU"/>

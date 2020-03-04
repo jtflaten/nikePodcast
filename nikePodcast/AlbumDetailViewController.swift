@@ -59,14 +59,20 @@ class AlbumDetailViewController: UIViewController {
         return string
     }
     
-    fileprivate func addSubviewWithAutoLayout(_ vw: UIView) {
-        vw.translatesAutoresizingMaskIntoConstraints = false
-        view.addSubview(vw)
+
+    
+    fileprivate func setUpLabel(_ label: UILabel, underneath viewAvove: UIView, size: CGFloat = 17) {
+        self.view.addSubviewWithAutoLayout(label)
+        label.numberOfLines = 0
+        addLabelStandardConstraints(view: label, viewAbove: viewAvove)
+        label.textAlignment = .center
+        if let arial = UIFont(name: "ArialMT", size: size) {
+            label.font = arial
+        }
     }
     
     func initSubviews(){
-        albumImageView = UIImageView()
-        addSubviewWithAutoLayout(albumImageView)
+        self.view.addSubviewWithAutoLayout(albumImageView)
         
         NSLayoutConstraint.activate([
             albumImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
@@ -75,32 +81,25 @@ class AlbumDetailViewController: UIViewController {
             albumImageView.widthAnchor.constraint(equalTo: albumImageView.heightAnchor)
         ])
         
+        setUpLabel(artistLabel, underneath: albumImageView)
+        setUpLabel(albumLabel, underneath: artistLabel)
+        setUpLabel(genreLabel, underneath: albumLabel)
+        setUpLabel(releaseDateLabel, underneath: genreLabel)
+        setUpLabel(copyrightLabel, underneath: releaseDateLabel, size: 12)
         
-        addSubviewWithAutoLayout(artistLabel)
-        artistLabel.numberOfLines = 0
-        addLabelStandardConstraints(view: artistLabel, viewAbove: albumImageView)
-        
-        
-        addSubviewWithAutoLayout(albumLabel)
-        albumLabel.numberOfLines = 0
-        addLabelStandardConstraints(view: albumLabel, viewAbove: artistLabel)
-        
-        
-        addSubviewWithAutoLayout(genreLabel)
-        genreLabel.numberOfLines = 0
-        addLabelStandardConstraints(view: genreLabel, viewAbove: albumLabel)
-        
-        
-        addSubviewWithAutoLayout(releaseDateLabel)
-        releaseDateLabel.numberOfLines = 0
-        addLabelStandardConstraints(view: releaseDateLabel, viewAbove: genreLabel)
-        
-        
-        addSubviewWithAutoLayout(copyrightLabel)
-        copyrightLabel.numberOfLines = 0
-        addLabelStandardConstraints(view: copyrightLabel, viewAbove: releaseDateLabel)
-        
-        addSubviewWithAutoLayout(buyButton)
+        setUpBuyButton()
+    }
+    
+    func addLabelStandardConstraints(view: UIView, viewAbove: UIView){
+        NSLayoutConstraint.activate([
+            view.leadingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leadingAnchor, constant: 20),
+            view.trailingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.trailingAnchor, constant: -20),
+            view.topAnchor.constraint(equalTo: viewAbove.bottomAnchor, constant: 12)
+        ])
+    }
+    
+    fileprivate func setUpBuyButton() {
+        self.view.addSubviewWithAutoLayout(buyButton)
         NSLayoutConstraint.activate([
             buyButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             buyButton.leadingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leadingAnchor, constant: 20),
@@ -113,16 +112,6 @@ class AlbumDetailViewController: UIViewController {
         buyButton.setTitle("See in Apple Music", for: .normal)
         buyButton.addTarget(self, action: #selector(handleBuyButtonTap), for: .touchUpInside)
     }
-    
-    func addLabelStandardConstraints(view: UIView, viewAbove: UIView){
-        NSLayoutConstraint.activate([
-            view.leadingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leadingAnchor, constant: 20),
-            view.trailingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.trailingAnchor, constant: -20),
-            view.topAnchor.constraint(equalTo: viewAbove.bottomAnchor, constant: 12)
-        ])
-    }
-    
-    
      @objc func handleBuyButtonTap() {
 //        TODO: fix consistent simulator issues
         let buyString = album.url.replacingOccurrences(of: "https", with: "itms")
@@ -150,4 +139,11 @@ class AlbumDetailViewController: UIViewController {
     
     
     
+}
+//TODO: add this to extensions
+extension UIView {
+    func addSubviewWithAutoLayout(_ vw: UIView) {
+        vw.translatesAutoresizingMaskIntoConstraints = false
+        self.addSubview(vw)
+    }
 }
