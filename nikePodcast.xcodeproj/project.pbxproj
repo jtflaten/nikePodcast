@@ -9,15 +9,27 @@
 /* Begin PBXBuildFile section */
 		58316314240F3B6200F9CCED /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58316313240F3B6200F9CCED /* AppDelegate.swift */; };
 		58316316240F3B6200F9CCED /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58316315240F3B6200F9CCED /* SceneDelegate.swift */; };
-		58316318240F3B6200F9CCED /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58316317240F3B6200F9CCED /* ViewController.swift */; };
+		58316318240F3B6200F9CCED /* AlbumTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58316317240F3B6200F9CCED /* AlbumTableViewController.swift */; };
 		5831631B240F3B6200F9CCED /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 58316319240F3B6200F9CCED /* Main.storyboard */; };
 		5831631D240F3B6200F9CCED /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5831631C240F3B6200F9CCED /* Assets.xcassets */; };
 		58316320240F3B6200F9CCED /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5831631E240F3B6200F9CCED /* LaunchScreen.storyboard */; };
 		5831632B240F3B6300F9CCED /* nikePodcastUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5831632A240F3B6300F9CCED /* nikePodcastUITests.swift */; };
+		5831633C240F3C1400F9CCED /* albumApiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5831633B240F3C1400F9CCED /* albumApiTests.swift */; };
+		58316344240F3CFF00F9CCED /* AlbumAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58316343240F3CFF00F9CCED /* AlbumAPI.swift */; };
+		58316346240F489500F9CCED /* Utility in Resources */ = {isa = PBXBuildFile; fileRef = 58316345240F489500F9CCED /* Utility */; };
+		58316348240F4BB400F9CCED /* AlbumTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58316347240F4BB400F9CCED /* AlbumTableViewCell.swift */; };
+		58B6F6ED240F5BEE0048A582 /* AlbumDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58B6F6EC240F5BEE0048A582 /* AlbumDetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
 		58316327240F3B6300F9CCED /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 58316308240F3B6200F9CCED /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5831630F240F3B6200F9CCED;
+			remoteInfo = nikePodcast;
+		};
+		5831633E240F3C1400F9CCED /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 58316308240F3B6200F9CCED /* Project object */;
 			proxyType = 1;
@@ -30,7 +42,7 @@
 		58316310240F3B6200F9CCED /* nikePodcast.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = nikePodcast.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		58316313240F3B6200F9CCED /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		58316315240F3B6200F9CCED /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		58316317240F3B6200F9CCED /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		58316317240F3B6200F9CCED /* AlbumTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumTableViewController.swift; sourceTree = "<group>"; };
 		5831631A240F3B6200F9CCED /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		5831631C240F3B6200F9CCED /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5831631F240F3B6200F9CCED /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -38,6 +50,13 @@
 		58316326240F3B6300F9CCED /* nikePodcastUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = nikePodcastUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5831632A240F3B6300F9CCED /* nikePodcastUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = nikePodcastUITests.swift; sourceTree = "<group>"; };
 		5831632C240F3B6300F9CCED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		58316339240F3C1400F9CCED /* albumApiTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = albumApiTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		5831633B240F3C1400F9CCED /* albumApiTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = albumApiTests.swift; sourceTree = "<group>"; };
+		5831633D240F3C1400F9CCED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		58316343240F3CFF00F9CCED /* AlbumAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumAPI.swift; sourceTree = "<group>"; };
+		58316345240F489500F9CCED /* Utility */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Utility; path = ../../../../../../Downloads/Utility; sourceTree = "<group>"; };
+		58316347240F4BB400F9CCED /* AlbumTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumTableViewCell.swift; sourceTree = "<group>"; };
+		58B6F6EC240F5BEE0048A582 /* AlbumDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumDetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,6 +74,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		58316336240F3C1400F9CCED /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -63,6 +89,7 @@
 			children = (
 				58316312240F3B6200F9CCED /* nikePodcast */,
 				58316329240F3B6300F9CCED /* nikePodcastUITests */,
+				5831633A240F3C1400F9CCED /* albumApiTests */,
 				58316311240F3B6200F9CCED /* Products */,
 			);
 			sourceTree = "<group>";
@@ -72,6 +99,7 @@
 			children = (
 				58316310240F3B6200F9CCED /* nikePodcast.app */,
 				58316326240F3B6300F9CCED /* nikePodcastUITests.xctest */,
+				58316339240F3C1400F9CCED /* albumApiTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -81,8 +109,12 @@
 			children = (
 				58316313240F3B6200F9CCED /* AppDelegate.swift */,
 				58316315240F3B6200F9CCED /* SceneDelegate.swift */,
-				58316317240F3B6200F9CCED /* ViewController.swift */,
+				58316317240F3B6200F9CCED /* AlbumTableViewController.swift */,
+				58316347240F4BB400F9CCED /* AlbumTableViewCell.swift */,
+				58316343240F3CFF00F9CCED /* AlbumAPI.swift */,
+				58B6F6EC240F5BEE0048A582 /* AlbumDetailViewController.swift */,
 				58316319240F3B6200F9CCED /* Main.storyboard */,
+				58316345240F489500F9CCED /* Utility */,
 				5831631C240F3B6200F9CCED /* Assets.xcassets */,
 				5831631E240F3B6200F9CCED /* LaunchScreen.storyboard */,
 				58316321240F3B6200F9CCED /* Info.plist */,
@@ -97,6 +129,15 @@
 				5831632C240F3B6300F9CCED /* Info.plist */,
 			);
 			path = nikePodcastUITests;
+			sourceTree = "<group>";
+		};
+		5831633A240F3C1400F9CCED /* albumApiTests */ = {
+			isa = PBXGroup;
+			children = (
+				5831633B240F3C1400F9CCED /* albumApiTests.swift */,
+				5831633D240F3C1400F9CCED /* Info.plist */,
+			);
+			path = albumApiTests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,6 +178,24 @@
 			productReference = 58316326240F3B6300F9CCED /* nikePodcastUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
+		58316338240F3C1400F9CCED /* albumApiTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 58316340240F3C1400F9CCED /* Build configuration list for PBXNativeTarget "albumApiTests" */;
+			buildPhases = (
+				58316335240F3C1400F9CCED /* Sources */,
+				58316336240F3C1400F9CCED /* Frameworks */,
+				58316337240F3C1400F9CCED /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				5831633F240F3C1400F9CCED /* PBXTargetDependency */,
+			);
+			name = albumApiTests;
+			productName = albumApiTests;
+			productReference = 58316339240F3C1400F9CCED /* albumApiTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -151,6 +210,10 @@
 						CreatedOnToolsVersion = 11.3.1;
 					};
 					58316325240F3B6300F9CCED = {
+						CreatedOnToolsVersion = 11.3.1;
+						TestTargetID = 5831630F240F3B6200F9CCED;
+					};
+					58316338240F3C1400F9CCED = {
 						CreatedOnToolsVersion = 11.3.1;
 						TestTargetID = 5831630F240F3B6200F9CCED;
 					};
@@ -171,6 +234,7 @@
 			targets = (
 				5831630F240F3B6200F9CCED /* nikePodcast */,
 				58316325240F3B6300F9CCED /* nikePodcastUITests */,
+				58316338240F3C1400F9CCED /* albumApiTests */,
 			);
 		};
 /* End PBXProject section */
@@ -183,10 +247,18 @@
 				58316320240F3B6200F9CCED /* LaunchScreen.storyboard in Resources */,
 				5831631D240F3B6200F9CCED /* Assets.xcassets in Resources */,
 				5831631B240F3B6200F9CCED /* Main.storyboard in Resources */,
+				58316346240F489500F9CCED /* Utility in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		58316324240F3B6300F9CCED /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		58316337240F3C1400F9CCED /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -200,9 +272,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				58316318240F3B6200F9CCED /* ViewController.swift in Sources */,
+				58316348240F4BB400F9CCED /* AlbumTableViewCell.swift in Sources */,
+				58316344240F3CFF00F9CCED /* AlbumAPI.swift in Sources */,
+				58316318240F3B6200F9CCED /* AlbumTableViewController.swift in Sources */,
 				58316314240F3B6200F9CCED /* AppDelegate.swift in Sources */,
 				58316316240F3B6200F9CCED /* SceneDelegate.swift in Sources */,
+				58B6F6ED240F5BEE0048A582 /* AlbumDetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -214,6 +289,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		58316335240F3C1400F9CCED /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5831633C240F3C1400F9CCED /* albumApiTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -221,6 +304,11 @@
 			isa = PBXTargetDependency;
 			target = 5831630F240F3B6200F9CCED /* nikePodcast */;
 			targetProxy = 58316327240F3B6300F9CCED /* PBXContainerItemProxy */;
+		};
+		5831633F240F3C1400F9CCED /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5831630F240F3B6200F9CCED /* nikePodcast */;
+			targetProxy = 5831633E240F3C1400F9CCED /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -434,6 +522,46 @@
 			};
 			name = Release;
 		};
+		58316341240F3C1400F9CCED /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = E94BBYQUZ2;
+				INFOPLIST_FILE = albumApiTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.breaklist.albumApiTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/nikePodcast.app/nikePodcast";
+			};
+			name = Debug;
+		};
+		58316342240F3C1400F9CCED /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = E94BBYQUZ2;
+				INFOPLIST_FILE = albumApiTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.breaklist.albumApiTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/nikePodcast.app/nikePodcast";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -460,6 +588,15 @@
 			buildConfigurations = (
 				58316333240F3B6300F9CCED /* Debug */,
 				58316334240F3B6300F9CCED /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		58316340240F3C1400F9CCED /* Build configuration list for PBXNativeTarget "albumApiTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				58316341240F3C1400F9CCED /* Debug */,
+				58316342240F3C1400F9CCED /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
