@@ -13,11 +13,8 @@ import UIKit
 
 extension UIImageView {
     public func downloadImage(from url: URL) {
-        print("Download Started")
         getData(from: url) { data, response, error in
             guard let data = data, error == nil else { return }
-            print(response?.suggestedFilename ?? url.lastPathComponent)
-            print("Download Finished")
             DispatchQueue.main.async() { [weak self] in
                 guard let self = self else {return}
                 self.image = UIImage(data: data)

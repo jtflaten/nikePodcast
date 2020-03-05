@@ -18,6 +18,7 @@ class AlbumTableViewController: UITableViewController {
         self.view.backgroundColor = .white
         self.navigationItem.title = "Top Albums"
         fetchAblbums()
+        tableView.rowHeight = 64
         tableView.register(AlbumTableViewCell.self, forCellReuseIdentifier: "AlbumTableViewCell")
     }
     

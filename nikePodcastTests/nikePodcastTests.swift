@@ -32,7 +32,6 @@ class nikePodcastTests: XCTestCase {
                 exp.fulfill()
                 switch result {
                 case .success (let resp):
-                    print("TEST RESULT: \(resp.feed.results.count)")
                     XCTAssert(resp.feed.results.count == 100)
                 case .failure(let error):
                     XCTFail(error.localizedDescription)
