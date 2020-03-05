@@ -23,9 +23,11 @@ public class Reachability {
             }
         }
         
-        
         var flags: SCNetworkReachabilityFlags = SCNetworkReachabilityFlags(rawValue: 0)
-        if SCNetworkReachabilityGetFlags(defaultRouteReachability!, &flags) == false {
+        guard let defaultRouteReach = defaultRouteReachability else {
+            return false
+        }
+        if SCNetworkReachabilityGetFlags(defaultRouteReach, &flags) == false {
             return false
         }
         
