@@ -16,9 +16,13 @@ class AlbumTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = .white
-        checkForConnection()
         fetchAblbums()
         tableView.register(AlbumTableViewCell.self, forCellReuseIdentifier: "AlbumTableViewCell")
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        checkForConnection()
     }
     
     fileprivate func fetchAblbums() {

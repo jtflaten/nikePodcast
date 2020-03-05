@@ -11,7 +11,6 @@
 		58316316240F3B6200F9CCED /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58316315240F3B6200F9CCED /* SceneDelegate.swift */; };
 		58316318240F3B6200F9CCED /* AlbumTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58316317240F3B6200F9CCED /* AlbumTableViewController.swift */; };
 		5831631D240F3B6200F9CCED /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5831631C240F3B6200F9CCED /* Assets.xcassets */; };
-		58316320240F3B6200F9CCED /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5831631E240F3B6200F9CCED /* LaunchScreen.storyboard */; };
 		5831632B240F3B6300F9CCED /* nikePodcastUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5831632A240F3B6300F9CCED /* nikePodcastUITests.swift */; };
 		5831633C240F3C1400F9CCED /* albumApiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5831633B240F3C1400F9CCED /* albumApiTests.swift */; };
 		58316344240F3CFF00F9CCED /* AlbumAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58316343240F3CFF00F9CCED /* AlbumAPI.swift */; };
@@ -46,7 +45,6 @@
 		58316315240F3B6200F9CCED /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		58316317240F3B6200F9CCED /* AlbumTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumTableViewController.swift; sourceTree = "<group>"; };
 		5831631C240F3B6200F9CCED /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		5831631F240F3B6200F9CCED /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		58316321240F3B6200F9CCED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		58316326240F3B6300F9CCED /* nikePodcastUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = nikePodcastUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5831632A240F3B6300F9CCED /* nikePodcastUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = nikePodcastUITests.swift; sourceTree = "<group>"; };
@@ -120,7 +118,6 @@
 				5892F67D24104D390063CE42 /* Models.swift */,
 				58B6F6EC240F5BEE0048A582 /* AlbumDetailViewController.swift */,
 				5831631C240F3B6200F9CCED /* Assets.xcassets */,
-				5831631E240F3B6200F9CCED /* LaunchScreen.storyboard */,
 				58316321240F3B6200F9CCED /* Info.plist */,
 			);
 			path = nikePodcast;
@@ -258,7 +255,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				58316320240F3B6200F9CCED /* LaunchScreen.storyboard in Resources */,
 				5831631D240F3B6200F9CCED /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -327,17 +323,6 @@
 			targetProxy = 5831633E240F3C1400F9CCED /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
-
-/* Begin PBXVariantGroup section */
-		5831631E240F3B6200F9CCED /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				5831631F240F3B6200F9CCED /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		5831632D240F3B6300F9CCED /* Debug */ = {
