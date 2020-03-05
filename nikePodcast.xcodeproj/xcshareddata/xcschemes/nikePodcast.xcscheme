@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "5831630F240F3B6200F9CCED"
-               BuildableName = "nikePodcast.app"
+               BuildableName = "ShoeGaze.app"
                BlueprintName = "nikePodcast"
                ReferencedContainer = "container:nikePodcast.xcodeproj">
             </BuildableReference>
@@ -76,7 +76,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "5831630F240F3B6200F9CCED"
-            BuildableName = "nikePodcast.app"
+            BuildableName = "ShoeGaze.app"
             BlueprintName = "nikePodcast"
             ReferencedContainer = "container:nikePodcast.xcodeproj">
          </BuildableReference>
@@ -93,7 +93,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "5831630F240F3B6200F9CCED"
-            BuildableName = "nikePodcast.app"
+            BuildableName = "ShoeGaze.app"
             BlueprintName = "nikePodcast"
             ReferencedContainer = "container:nikePodcast.xcodeproj">
          </BuildableReference>

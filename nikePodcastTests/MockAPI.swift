@@ -7,7 +7,7 @@
 //
 
 import Foundation
-@testable import nikePodcast
+@testable import ShoeGaze
 
 
 class MockAPI: AlbumAPI {

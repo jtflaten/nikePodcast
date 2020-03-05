@@ -7,11 +7,11 @@
 //
 
 import XCTest
-@testable import nikePodcast
+@testable import ShoeGaze
 
 class AlbumTableViewCellTests: XCTestCase {
     
-    var sut: AlbumTableViewCell!
+    var sut: AlbumTableViewCell?
     
     override func setUp() {
         super.setUp()
@@ -25,6 +25,11 @@ class AlbumTableViewCellTests: XCTestCase {
     }
     
     func testOnConfigure_setsLabels(){
+        guard let sut = sut else {
+            XCTFail()
+            return
+        }
+        
         let dummydata = MockAPI().second
         
         sut.configure(with:dummydata)

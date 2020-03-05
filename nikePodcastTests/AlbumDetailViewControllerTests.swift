@@ -7,11 +7,11 @@
 //
 
 import XCTest
-@testable import nikePodcast
+@testable import ShoeGaze
 
 class AlbumDetailViewControllerTests: XCTestCase {
 
-    var sut: AlbumDetailViewController!
+    var sut: AlbumDetailViewController?
     
     override func setUp() {
         super.setUp()
@@ -20,12 +20,16 @@ class AlbumDetailViewControllerTests: XCTestCase {
     }
     
     override func tearDown() {
-        sut.album = nil
+        sut?.album = nil
         sut = nil
         super.tearDown()
     }
     
     func testOnViewDidLoad_buttonSetsUp() {
+          guard let sut = sut else {
+            XCTFail()
+            return
+        }
         sut.viewDidLoad()
         
         XCTAssertEqual(sut.buyButton.titleLabel?.text, "See in Apple Music")
@@ -33,12 +37,20 @@ class AlbumDetailViewControllerTests: XCTestCase {
     }
     
     func testOnViewDidLoad_expectedNumberOfSubViewPresent() {
+          guard let sut = sut else {
+            XCTFail()
+            return
+        }
         sut.viewDidLoad()
         
         XCTAssertEqual(sut.view.subviews.count, 7)
     }
     
     func testOnConfigure_genreStringBuilt(){
+          guard let sut = sut else {
+            XCTFail()
+            return
+        }
         let dummydata = MockAPI().fisrt
         
         sut.album = dummydata
@@ -50,6 +62,10 @@ class AlbumDetailViewControllerTests: XCTestCase {
     }
 
     func testOnConfigure_labelFilled(){
+          guard let sut = sut else {
+            XCTFail()
+            return
+        }
         let dummydata = MockAPI().fisrt
         
         sut.album = dummydata

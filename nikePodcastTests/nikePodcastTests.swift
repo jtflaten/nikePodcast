@@ -7,12 +7,12 @@
 //
 
 import XCTest
-@testable import nikePodcast
+@testable import ShoeGaze
 
 class nikePodcastTests: XCTestCase {
 
         
-        var sut: AlbumAPI!
+        var sut: AlbumAPI?
         
         override func setUp() {
             sut = AlbumAPI()
@@ -23,6 +23,10 @@ class nikePodcastTests: XCTestCase {
         }
         
         func testAlbumApi_fetchesResults() {
+              guard let sut = sut else {
+            XCTFail()
+            return
+        }
             let exp = expectation(description: "Got API Results")
             sut.fetchAlbums() { result in
                 exp.fulfill()

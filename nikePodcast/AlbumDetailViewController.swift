@@ -20,7 +20,7 @@ class AlbumDetailViewController: UIViewController {
     var copyrightLabel = UILabel()
     var buyButton = UIButton()
     
-    var album: AlbumResult!
+    var album: AlbumResult?
     
     override func viewDidLoad() {
         initSubviews()
@@ -38,6 +38,11 @@ class AlbumDetailViewController: UIViewController {
     }
     
     func configure() {
+        guard let album = album else {
+            presentDefaultAlertView(title: "Error", message: "There was an error gettig the data", dismissalMessage: "OK")
+            self.navigationController?.popViewController(animated: true)
+            return
+        }
         artistLabel.text = album.artistName
         albumLabel.text = album.name
         genreLabel.text = buildGenreString(with: album.genres)
@@ -115,6 +120,11 @@ class AlbumDetailViewController: UIViewController {
          I've run into an issue where the simulator can not open the album in the Music app or the iTunes
          store, because these apps are not on the Simulator, and even safari on the simulator does not consistently open
          the link. But when run on a device, the behavior is as expected, it does attempt to open in the iTunes Store.*/
+        guard let album = album else {
+            presentDefaultAlertView(title: "Error", message: "There was an error gettig the data", dismissalMessage: "OK")
+            self.navigationController?.popViewController(animated: true)
+            return
+        }
         let buyString = album.url.replacingOccurrences(of: "https", with: "itms")
         guard let httpsUrl = URL(string: album.url) else {
             presentDefaultAlertView(title: "Error", message: "there was an error find the album in the Music store", dismissalMessage: nil)

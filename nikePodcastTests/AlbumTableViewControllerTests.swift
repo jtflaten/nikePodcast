@@ -7,30 +7,37 @@
 //
 
 import XCTest
-@testable import nikePodcast
+@testable import ShoeGaze
 
 class AlbumTableViewControllerTests: XCTestCase {
     
-    var sut: AlbumTableViewController!
+    var sut: AlbumTableViewController?
     
     override func setUp() {
         super.setUp()
         sut = AlbumTableViewController()
-        sut.albumClient = MockAPI()
+        sut?.albumClient = MockAPI()
     }
 
     override func tearDown() {
-        sut.albums = []
+        sut?.albums = []
         sut = nil
         super.tearDown()
     }
 
     func testOninit_noAblumsLoaded() {
-        
+          guard let sut = sut else {
+            XCTFail()
+            return
+        }
         XCTAssertEqual(sut.albums.count, 0)
     }
     
     func testFetchAlbums_fetchesAlbums() {
+          guard let sut = sut else {
+            XCTFail()
+            return
+        }
         sut.fetchAblbums()
         XCTAssertEqual(sut.albums.count, 3)
     }
