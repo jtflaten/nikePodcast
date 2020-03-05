@@ -16,6 +16,7 @@ class AlbumTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = .white
+        self.navigationItem.title = "Top Albums"
         fetchAblbums()
         tableView.register(AlbumTableViewCell.self, forCellReuseIdentifier: "AlbumTableViewCell")
     }
