@@ -96,7 +96,7 @@ class AlbumDetailViewController: UIViewController {
         ])
     }
     
-    fileprivate func setUpBuyButton() {
+    func setUpBuyButton() {
         self.view.addSubviewWithAutoLayout(buyButton)
         NSLayoutConstraint.activate([
             buyButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),

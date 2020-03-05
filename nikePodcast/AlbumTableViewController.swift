@@ -11,7 +11,7 @@ import UIKit
 class AlbumTableViewController: UITableViewController {
 
     var albums: [AlbumResult] = []
-    let albumClient = AlbumAPI()
+    var albumClient = AlbumAPI()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,7 +25,7 @@ class AlbumTableViewController: UITableViewController {
         checkForConnection()
     }
     
-    fileprivate func fetchAblbums() {
+    func fetchAblbums() {
         albumClient.fetchAlbums() { result in
             switch result {
             case .success(let response):
@@ -34,7 +34,7 @@ class AlbumTableViewController: UITableViewController {
             case .failure(let error):
                 print(error.localizedDescription)
             }
-        }
+        }    
     }
     
     //MARK: - DataSource Methods

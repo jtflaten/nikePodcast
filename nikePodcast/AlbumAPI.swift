@@ -25,7 +25,7 @@ class AlbumAPI {
     }
         
     func fetchAlbums(completion: @escaping (Result<Response, APIError>) -> Void) {
-        guard let url = URL(string: "https://rss.itunes.apple.com/api/v1/us/apple-music/top-albums/all/100/non-explicit.json") else {
+        guard let url = URL(string: "https://rss.itunes.apple.com/api/v1/us/apple-music/top-albums/all/100/explicit.json") else {
             completion(.failure(.badURL))
             return
         }
