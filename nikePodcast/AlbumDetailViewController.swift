@@ -29,6 +29,10 @@ class AlbumDetailViewController: UIViewController {
         super.viewWillAppear(animated)
         configure()
     }
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        super.traitCollectionDidChange(previousTraitCollection)
+        styleLabels()
+    }
     
     public static func create(album: AlbumResult) -> AlbumDetailViewController{
         let vc = AlbumDetailViewController()
@@ -64,14 +68,20 @@ class AlbumDetailViewController: UIViewController {
         return string
     }
     
-    fileprivate func setUpLabel(_ label: UILabel, underneath viewAvove: UIView, size: CGFloat = 17) {
+    fileprivate func setUpLabel(_ label: UILabel, underneath viewAvove: UIView, textStyle: UIFont.TextStyle = .body) {
         self.view.addSubviewWithAutoLayout(label)
         label.numberOfLines = 0
         addLabelStandardConstraints(view: label, viewAbove: viewAvove)
         label.textAlignment = .center
-        if let arial = UIFont(name: "ArialMT", size: size) {
-            label.font = arial
-        }
+        label.font = label.getScaledFont(forFont: "ArialMT", textStyle: textStyle)
+    }
+    
+    private func styleLabels() {
+        setUpLabel(artistLabel, underneath: albumImageView)
+        setUpLabel(albumLabel, underneath: artistLabel)
+        setUpLabel(genreLabel, underneath: albumLabel)
+        setUpLabel(releaseDateLabel, underneath: genreLabel)
+        setUpLabel(copyrightLabel, underneath: releaseDateLabel, textStyle: .caption1)
     }
     
     func initSubviews(){
@@ -84,12 +94,7 @@ class AlbumDetailViewController: UIViewController {
             albumImageView.widthAnchor.constraint(equalTo: albumImageView.heightAnchor)
         ])
         
-        setUpLabel(artistLabel, underneath: albumImageView)
-        setUpLabel(albumLabel, underneath: artistLabel)
-        setUpLabel(genreLabel, underneath: albumLabel)
-        setUpLabel(releaseDateLabel, underneath: genreLabel)
-        setUpLabel(copyrightLabel, underneath: releaseDateLabel, size: 12)
-        
+        styleLabels()
         setUpBuyButton()
     }
     
@@ -146,3 +151,16 @@ class AlbumDetailViewController: UIViewController {
         }  
     }
 }
+
+extension UIView {
+    public func getScaledFont(forFont name: String, textStyle: UIFont.TextStyle) -> UIFont {
+        let userFont =  UIFontDescriptor.preferredFontDescriptor(withTextStyle: textStyle)
+        let pointSize = min(userFont.pointSize, 20)
+        guard let customFont = UIFont(name: name, size: pointSize) else {
+            return UIFont.preferredFont(forTextStyle: textStyle)
+        }
+        return UIFontMetrics.default.scaledFont(for: customFont)
+    }
+}
+
+
