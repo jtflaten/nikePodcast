@@ -74,6 +74,7 @@ class AlbumDetailViewController: UIViewController {
         addLabelStandardConstraints(view: label, viewAbove: viewAvove)
         label.textAlignment = .center
         label.font = label.getScaledFont(forFont: "ArialMT", textStyle: textStyle)
+        print("font size: \(label.font.pointSize)")
     }
     
     private func styleLabels() {
@@ -152,15 +153,6 @@ class AlbumDetailViewController: UIViewController {
     }
 }
 
-extension UIView {
-    public func getScaledFont(forFont name: String, textStyle: UIFont.TextStyle) -> UIFont {
-        let userFont =  UIFontDescriptor.preferredFontDescriptor(withTextStyle: textStyle)
-        let pointSize = min(userFont.pointSize, 20)
-        guard let customFont = UIFont(name: name, size: pointSize) else {
-            return UIFont.preferredFont(forTextStyle: textStyle)
-        }
-        return UIFontMetrics.default.scaledFont(for: customFont)
-    }
-}
+
 
 

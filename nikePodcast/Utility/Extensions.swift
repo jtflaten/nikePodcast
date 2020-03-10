@@ -53,6 +53,50 @@ extension UIView {
         
     }
     
+    public func getScaledFont(forFont name: String, textStyle: UIFont.TextStyle) -> UIFont {
+        let userFont =  UIFontDescriptor.preferredFontDescriptor(withTextStyle: textStyle)
+        let pointSize = min(userFont.pointSize, textStyle.getMaximum())
+        guard let customFont = UIFont(name: name, size: pointSize) else {
+            return UIFont.preferredFont(forTextStyle: textStyle)
+        }
+        //the scaledFont's size is going to be different from the font size defined above
+        let scaledFont = UIFontMetrics.default.scaledFont(for: customFont)
+        print("font size in the func: \(scaledFont.pointSize)")
+        return scaledFont
+    }
+    
+ 
+    
+    
 }
 
-
+extension UIFont.TextStyle {
+    func getMaximum() -> CGFloat {
+        switch self {
+        case .largeTitle:
+            return 38
+        case .title1:
+            return 32
+        case . title2:
+            return 26
+        case .title3:
+            return 24
+        case .headline:
+            return 21
+        case .body:
+            return 21
+        case .callout:
+            return 20
+        case .subheadline:
+            return 19
+        case .footnote:
+            return 17
+        case .caption1:
+            return 16
+        case .caption2:
+            return 15
+        default:
+            return 21
+        }
+    }
+}
