@@ -61,7 +61,6 @@ extension UIView {
         }
         //the scaledFont's size is going to be different from the font size defined above
         let scaledFont = UIFontMetrics.default.scaledFont(for: customFont)
-        print("font size in the func: \(scaledFont.pointSize)")
         return scaledFont
     }
     

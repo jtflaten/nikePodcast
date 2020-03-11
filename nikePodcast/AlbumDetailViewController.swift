@@ -19,6 +19,8 @@ class AlbumDetailViewController: UIViewController {
     var releaseDateLabel = UILabel()
     var copyrightLabel = UILabel()
     var buyButton = UIButton()
+    var scrollView = UIScrollView()
+    var contentView = UIView()
     
     var album: AlbumResult?
     
@@ -69,12 +71,11 @@ class AlbumDetailViewController: UIViewController {
     }
     
     fileprivate func setUpLabel(_ label: UILabel, underneath viewAvove: UIView, textStyle: UIFont.TextStyle = .body) {
-        self.view.addSubviewWithAutoLayout(label)
+        self.contentView.addSubviewWithAutoLayout(label)
         label.numberOfLines = 0
         addLabelStandardConstraints(view: label, viewAbove: viewAvove)
         label.textAlignment = .center
         label.font = label.getScaledFont(forFont: "ArialMT", textStyle: textStyle)
-        print("font size: \(label.font.pointSize)")
     }
     
     private func styleLabels() {
@@ -86,11 +87,30 @@ class AlbumDetailViewController: UIViewController {
     }
     
     func initSubviews(){
-        self.view.addSubviewWithAutoLayout(albumImageView)
+        
+        self.view.addSubviewWithAutoLayout(scrollView)
         
         NSLayoutConstraint.activate([
-            albumImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            albumImageView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 24),
+            scrollView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
+            scrollView.topAnchor.constraint(equalTo: self.view.topAnchor),
+            scrollView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
+            scrollView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: 0)
+        ])
+        
+        self.scrollView.addSubviewWithAutoLayout(contentView)
+        
+        NSLayoutConstraint.activate([
+            contentView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor),
+            contentView.topAnchor.constraint(equalTo: scrollView.topAnchor),
+            contentView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
+            contentView.rightAnchor.constraint(equalTo: scrollView.rightAnchor),
+            contentView.widthAnchor.constraint(equalTo: scrollView.widthAnchor)
+        ])
+        self.contentView.addSubviewWithAutoLayout(albumImageView)
+        
+        NSLayoutConstraint.activate([
+            albumImageView.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
+            albumImageView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 20),
             albumImageView.heightAnchor.constraint(equalToConstant: 240),
             albumImageView.widthAnchor.constraint(equalTo: albumImageView.heightAnchor)
         ])
@@ -101,19 +121,20 @@ class AlbumDetailViewController: UIViewController {
     
     func addLabelStandardConstraints(view: UIView, viewAbove: UIView){
         NSLayoutConstraint.activate([
-            view.leadingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leadingAnchor, constant: 20),
-            view.trailingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.trailingAnchor, constant: -20),
+            view.leadingAnchor.constraint(equalTo: self.contentView.safeAreaLayoutGuide.leadingAnchor, constant: 20),
+            view.trailingAnchor.constraint(equalTo: self.contentView.safeAreaLayoutGuide.trailingAnchor, constant: -20),
             view.topAnchor.constraint(equalTo: viewAbove.bottomAnchor, constant: 12)
         ])
     }
     
     func setUpBuyButton() {
-        self.view.addSubviewWithAutoLayout(buyButton)
+        self.contentView.addSubviewWithAutoLayout(buyButton)
         NSLayoutConstraint.activate([
-            buyButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            buyButton.leadingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leadingAnchor, constant: 20),
-            buyButton.trailingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.trailingAnchor, constant: -20),
-            buyButton.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor, constant: -20)
+            buyButton.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
+            buyButton.leadingAnchor.constraint(equalTo: self.contentView.safeAreaLayoutGuide.leadingAnchor, constant: 20),
+            buyButton.trailingAnchor.constraint(equalTo: self.contentView.safeAreaLayoutGuide.trailingAnchor, constant: -20),
+            buyButton.topAnchor.constraint(greaterThanOrEqualTo: copyrightLabel.bottomAnchor, constant: 20),
+            buyButton.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -20)
         ])
         buyButton.roundAllCorners()
         buyButton.backgroundColor = .blue
