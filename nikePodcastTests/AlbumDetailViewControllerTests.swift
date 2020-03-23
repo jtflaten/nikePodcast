@@ -43,7 +43,7 @@ class AlbumDetailViewControllerTests: XCTestCase {
         }
         sut.viewDidLoad()
         
-        XCTAssertEqual(sut.view.subviews.count, 7)
+        XCTAssertEqual(sut.contentView.subviews.count, 7)
     }
     
     func testOnConfigure_genreStringBuilt(){
